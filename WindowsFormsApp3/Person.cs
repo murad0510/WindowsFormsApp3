@@ -13,5 +13,6 @@ namespace WindowsFormsApp3
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string BirthDay { get; set; }
+        public string FileName { get; set; }
     }
 }

@@ -15,7 +15,8 @@ namespace WindowsFormsApp3
 {
     public partial class Form1 : Form
     {
-        List<string> list = new List<string>();
+        List<Person> list = new List<Person>();
+
         public static void WriteJsonPerson(Person person)
         {
             var serializer = new JsonSerializer();
@@ -34,6 +35,7 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             var temp = ChangeBtn.Location;
@@ -50,7 +52,7 @@ namespace WindowsFormsApp3
             WriteJsonPerson(person);
             UserListBox.DisplayMember = nameof(Person.Name);
             UserListBox.Items.Add(person);
-            list.Add($"{person.Name}.json");
+            list.Add(person);
 
             NameMaskedTextBox.Text = String.Empty;
             SurnameMaskedTextBox.Text = String.Empty;
@@ -59,11 +61,47 @@ namespace WindowsFormsApp3
             BirthDayDateTimePictute.Text = String.Empty;
         }
 
+
+        public bool IsEnter { get; set; } = true;
+
         private void ChangeBtn_Click(object sender, EventArgs e)
         {
             var temp = ChangeBtn.Location;
             ChangeBtn.Location = AddBtn.Location;
             AddBtn.Location = temp;
+            var human = UserListBox.SelectedItem as Person;
+            if (IsEnter)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Name == human.Name)
+                    {
+                        list[i].Name = NameMaskedTextBox.Text;
+                        list[i].Surname = SurnameMaskedTextBox.Text;
+                        list[i].Email = EmailMaskedTextBox.Text;
+                        list[i].PhoneNumber = PhoneNumberMaskedTextBox.Text;
+                        list[i].BirthDay = BirthDayDateTimePictute.Text;
+
+                        WriteJsonPerson(list[i]);
+                    }
+                }
+            }
+            else
+            {
+                human.Name = NameMaskedTextBox.Text;
+                human.Surname = SurnameMaskedTextBox.Text;
+                human.Email = EmailMaskedTextBox.Text;
+                human.PhoneNumber = PhoneNumberMaskedTextBox.Text;
+                human.BirthDay = BirthDayDateTimePictute.Text;
+
+                WriteJsonPerson(human);
+            }
+
+            NameMaskedTextBox.Text = String.Empty;
+            SurnameMaskedTextBox.Text = String.Empty;
+            EmailMaskedTextBox.Text = String.Empty;
+            PhoneNumberMaskedTextBox.Text = String.Empty;
+            BirthDayDateTimePictute.Text = String.Empty;
         }
 
         private void NameMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -79,16 +117,22 @@ namespace WindowsFormsApp3
         private void LoadBtn_Click(object sender, EventArgs e)
         {
             ListBox listBox = new ListBox();
+            IsEnter = false;
             if (JsonFileEnter.Text != null)
             {
-                var human = UserListBox.SelectedIndex;
-
-                if (human + ".json" == JsonFileEnter.Text)
+                for (int i = 0; i < list.Count; i++)
                 {
-                    
+                    if (list[i].Name + ".json" == JsonFileEnter.Text)
+                    {
+                        NameMaskedTextBox.Text = list[i].Name;
+                        SurnameMaskedTextBox.Text = list[i].Surname;
+                        EmailMaskedTextBox.Text = list[i].Email;
+                        PhoneNumberMaskedTextBox.Text = list[i].PhoneNumber;
+                        BirthDayDateTimePictute.Text = list[i].BirthDay;
+                    }
                 }
-
             }
+            IsEnter = !IsEnter;
         }
 
         private void UserListBox_SelectedIndexChanged(object sender, EventArgs e)
