@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +17,15 @@ namespace WindowsFormsApp3
 {
     public partial class Form1 : Form
     {
-        List<Person> list = new List<Person>();
 
-        public static void WriteJsonPerson(Person person)
+        List<Person> list = new List<Person>();
+        List<Person> list2 = new List<Person>();
+        public static void WriteJsonNewPerson(Person person)
         {
             var serializer = new JsonSerializer();
-            using (var sw = new StreamWriter($"{person.Name}.json"))
+
+
+            using (var sw = new StreamWriter($"{person.FileName}.json"))
             {
                 using (var jw = new JsonTextWriter(sw))
                 {
@@ -28,12 +33,26 @@ namespace WindowsFormsApp3
                     serializer.Serialize(jw, person);
                 }
             }
+
         }
 
         public Form1()
         {
             InitializeComponent();
         }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+                                                                  Color.FromArgb(23, 42, 58),
+                                                                  Color.FromArgb(117, 221, 221),
+                                                                  90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
+
+
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,11 +67,13 @@ namespace WindowsFormsApp3
             person.Email = EmailMaskedTextBox.Text;
             person.PhoneNumber = PhoneNumberMaskedTextBox.Text;
             person.BirthDay = BirthDayDateTimePictute.Text;
+            person.FileName = person.Name;
+            list2.Add(person);
+            //list.Add(person);
 
-            WriteJsonPerson(person);
+            //WriteJsonNewPerson(person);
             UserListBox.DisplayMember = nameof(Person.Name);
             UserListBox.Items.Add(person);
-            list.Add(person);
 
             NameMaskedTextBox.Text = String.Empty;
             SurnameMaskedTextBox.Text = String.Empty;
@@ -74,7 +95,7 @@ namespace WindowsFormsApp3
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].Name == human.Name)
+                    if (list[i].Name + ".json" == JsonFileEnter.Text)
                     {
                         list[i].Name = NameMaskedTextBox.Text;
                         list[i].Surname = SurnameMaskedTextBox.Text;
@@ -82,7 +103,7 @@ namespace WindowsFormsApp3
                         list[i].PhoneNumber = PhoneNumberMaskedTextBox.Text;
                         list[i].BirthDay = BirthDayDateTimePictute.Text;
 
-                        WriteJsonPerson(list[i]);
+                        WriteJsonNewPerson(list[i]);
                     }
                 }
             }
@@ -94,7 +115,7 @@ namespace WindowsFormsApp3
                 human.PhoneNumber = PhoneNumberMaskedTextBox.Text;
                 human.BirthDay = BirthDayDateTimePictute.Text;
 
-                WriteJsonPerson(human);
+                WriteJsonNewPerson(human);
             }
 
             NameMaskedTextBox.Text = String.Empty;
@@ -104,14 +125,13 @@ namespace WindowsFormsApp3
             BirthDayDateTimePictute.Text = String.Empty;
         }
 
-        private void NameMaskedTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-
+            list.AddRange(list2);
+            for (int i = 0; i < list.Count; i++)
+            {
+                WriteJsonNewPerson(list[i]);
+            }
         }
 
         private void LoadBtn_Click(object sender, EventArgs e)
@@ -122,7 +142,7 @@ namespace WindowsFormsApp3
             {
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (list[i].Name + ".json" == JsonFileEnter.Text)
+                    if (list[i].FileName + ".json" == JsonFileEnter.Text)
                     {
                         NameMaskedTextBox.Text = list[i].Name;
                         SurnameMaskedTextBox.Text = list[i].Surname;

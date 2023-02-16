@@ -63,9 +63,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(17, 34);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(595, 505);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -74,10 +74,10 @@
             // ChangeBtn
             // 
             this.ChangeBtn.Location = new System.Drawing.Point(416, 469);
-            this.ChangeBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ChangeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ChangeBtn.Name = "ChangeBtn";
             this.ChangeBtn.Size = new System.Drawing.Size(100, 28);
-            this.ChangeBtn.TabIndex = 10;
+            this.ChangeBtn.TabIndex = 7;
             this.ChangeBtn.Text = "Change";
             this.ChangeBtn.UseVisualStyleBackColor = true;
             this.ChangeBtn.Click += new System.EventHandler(this.ChangeBtn_Click);
@@ -85,10 +85,10 @@
             // AddBtn
             // 
             this.AddBtn.Location = new System.Drawing.Point(416, 407);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(100, 28);
-            this.AddBtn.TabIndex = 9;
+            this.AddBtn.TabIndex = 6;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
             this.AddBtn.Click += new System.EventHandler(this.button1_Click);
@@ -96,44 +96,46 @@
             // BirthDayDateTimePictute
             // 
             this.BirthDayDateTimePictute.Location = new System.Drawing.Point(304, 352);
-            this.BirthDayDateTimePictute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BirthDayDateTimePictute.Margin = new System.Windows.Forms.Padding(4);
             this.BirthDayDateTimePictute.Name = "BirthDayDateTimePictute";
             this.BirthDayDateTimePictute.Size = new System.Drawing.Size(265, 22);
-            this.BirthDayDateTimePictute.TabIndex = 8;
+            this.BirthDayDateTimePictute.TabIndex = 5;
             // 
             // PhoneNumberMaskedTextBox
             // 
             this.PhoneNumberMaskedTextBox.Location = new System.Drawing.Point(304, 279);
-            this.PhoneNumberMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PhoneNumberMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberMaskedTextBox.Mask = "(+994) -00-000-00-00";
             this.PhoneNumberMaskedTextBox.Name = "PhoneNumberMaskedTextBox";
             this.PhoneNumberMaskedTextBox.Size = new System.Drawing.Size(160, 22);
-            this.PhoneNumberMaskedTextBox.TabIndex = 6;
+            this.PhoneNumberMaskedTextBox.TabIndex = 4;
             // 
             // SurnameMaskedTextBox
             // 
+            this.SurnameMaskedTextBox.BackColor = System.Drawing.Color.DimGray;
             this.SurnameMaskedTextBox.Location = new System.Drawing.Point(304, 139);
-            this.SurnameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SurnameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SurnameMaskedTextBox.Name = "SurnameMaskedTextBox";
             this.SurnameMaskedTextBox.Size = new System.Drawing.Size(248, 22);
-            this.SurnameMaskedTextBox.TabIndex = 5;
+            this.SurnameMaskedTextBox.TabIndex = 2;
             // 
             // EmailMaskedTextBox
             // 
+            this.EmailMaskedTextBox.BackColor = System.Drawing.Color.DimGray;
             this.EmailMaskedTextBox.Location = new System.Drawing.Point(304, 203);
-            this.EmailMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailMaskedTextBox.Name = "EmailMaskedTextBox";
             this.EmailMaskedTextBox.Size = new System.Drawing.Size(248, 22);
-            this.EmailMaskedTextBox.TabIndex = 5;
+            this.EmailMaskedTextBox.TabIndex = 3;
             // 
             // NameMaskedTextBox
             // 
+            this.NameMaskedTextBox.BackColor = System.Drawing.Color.DimGray;
             this.NameMaskedTextBox.Location = new System.Drawing.Point(304, 74);
-            this.NameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameMaskedTextBox.Name = "NameMaskedTextBox";
             this.NameMaskedTextBox.Size = new System.Drawing.Size(248, 22);
-            this.NameMaskedTextBox.TabIndex = 5;
-            this.NameMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.NameMaskedTextBox_MaskInputRejected);
+            this.NameMaskedTextBox.TabIndex = 1;
             // 
             // label5
             // 
@@ -192,10 +194,11 @@
             // 
             // UserListBox
             // 
+            this.UserListBox.BackColor = System.Drawing.Color.DimGray;
             this.UserListBox.FormattingEnabled = true;
             this.UserListBox.ItemHeight = 16;
             this.UserListBox.Location = new System.Drawing.Point(672, 46);
-            this.UserListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserListBox.Margin = new System.Windows.Forms.Padding(4);
             this.UserListBox.Name = "UserListBox";
             this.UserListBox.Size = new System.Drawing.Size(353, 372);
             this.UserListBox.TabIndex = 1;
@@ -204,19 +207,19 @@
             // JsonFileEnter
             // 
             this.JsonFileEnter.Location = new System.Drawing.Point(672, 442);
-            this.JsonFileEnter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.JsonFileEnter.Margin = new System.Windows.Forms.Padding(4);
             this.JsonFileEnter.Multiline = true;
             this.JsonFileEnter.Name = "JsonFileEnter";
             this.JsonFileEnter.Size = new System.Drawing.Size(353, 38);
-            this.JsonFileEnter.TabIndex = 2;
+            this.JsonFileEnter.TabIndex = 8;
             // 
             // LoadBtn
             // 
             this.LoadBtn.Location = new System.Drawing.Point(672, 505);
-            this.LoadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoadBtn.Margin = new System.Windows.Forms.Padding(4);
             this.LoadBtn.Name = "LoadBtn";
             this.LoadBtn.Size = new System.Drawing.Size(121, 28);
-            this.LoadBtn.TabIndex = 3;
+            this.LoadBtn.TabIndex = 9;
             this.LoadBtn.Text = "Load";
             this.LoadBtn.UseVisualStyleBackColor = true;
             this.LoadBtn.Click += new System.EventHandler(this.LoadBtn_Click);
@@ -224,10 +227,10 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(908, 505);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(119, 28);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 10;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -242,7 +245,7 @@
             this.Controls.Add(this.JsonFileEnter);
             this.Controls.Add(this.UserListBox);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);

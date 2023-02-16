@@ -8,6 +8,7 @@ namespace WindowsFormsApp3
 {
     public class Person
     {
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Email { get; set; }
