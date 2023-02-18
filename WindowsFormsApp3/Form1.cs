@@ -41,16 +41,16 @@ namespace WindowsFormsApp3
             InitializeComponent();
         }
 
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
-                                                                  Color.FromArgb(23, 42, 58),
-                                                                  Color.FromArgb(117, 221, 221),
-                                                                  90F))
-            {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
-            }
-        }
+        //protected override void OnPaintBackground(PaintEventArgs e)
+        //{
+        //    using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
+        //                                                          Color.FromArgb(23, 42, 58),
+        //                                                          Color.FromArgb(117, 221, 221),
+        //                                                          90F))
+        //    {
+        //        e.Graphics.FillRectangle(brush, this.ClientRectangle);
+        //    }
+        //}
 
 
 
@@ -62,26 +62,42 @@ namespace WindowsFormsApp3
             AddBtn.Location = temp;
 
             Person person = new Person();
-            person.Name = NameMaskedTextBox.Text;
-            person.Surname = SurnameMaskedTextBox.Text;
-            person.Email = EmailMaskedTextBox.Text;
-            person.PhoneNumber = PhoneNumberMaskedTextBox.Text;
-            person.BirthDay = BirthDayDateTimePictute.Text;
-            person.FileName = person.Name;
-            list2.Add(person);
+            if (EmailMaskedTextBox.Text.EndsWith("@gmail.com"))
+            {
+                person.Name = NameMaskedTextBox.Text;
+                person.Surname = SurnameMaskedTextBox.Text;
+                person.Email = EmailMaskedTextBox.Text;
+                person.PhoneNumber = PhoneNumberMaskedTextBox.Text;
+                person.BirthDay = BirthDayDateTimePictute.Text;
+                person.FileName = person.Name;
 
-            UserListBox.DisplayMember = nameof(Person.Name);
-            UserListBox.Items.Add(person);
+                label6.Text = "Correct";
+                label6.ForeColor = Color.Green;
 
-            NameMaskedTextBox.Text = String.Empty;
-            SurnameMaskedTextBox.Text = String.Empty;
-            EmailMaskedTextBox.Text = String.Empty;
-            PhoneNumberMaskedTextBox.Text = String.Empty;
-            BirthDayDateTimePictute.Text = String.Empty;
+                list2.Add(person);
+
+                UserListBox.DisplayMember = nameof(Person.Name);
+                UserListBox.Items.Add(person);
+
+                NameMaskedTextBox.Text = String.Empty;
+                SurnameMaskedTextBox.Text = String.Empty;
+                EmailMaskedTextBox.Text = String.Empty;
+                PhoneNumberMaskedTextBox.Text = String.Empty;
+                BirthDayDateTimePictute.Text = String.Empty;
+            }
+            else
+            {
+                label6.Text = "Wrong";
+                label6.ForeColor = Color.Red;
+            }
+
+
         }
 
 
         public bool IsEnter { get; set; } = true;
+
+        public bool IsLeave { get; set; }
 
         private void ChangeBtn_Click(object sender, EventArgs e)
         {
@@ -89,7 +105,7 @@ namespace WindowsFormsApp3
             ChangeBtn.Location = AddBtn.Location;
             AddBtn.Location = temp;
             var human = UserListBox.SelectedItem as Person;
-            if (IsEnter)
+            if (!IsEnter)
             {
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -104,8 +120,9 @@ namespace WindowsFormsApp3
                         WriteJsonNewPerson(list[i]);
                     }
                 }
+                IsEnter = !IsEnter;
             }
-            else
+            else if (IsLeave)
             {
                 human.Name = NameMaskedTextBox.Text;
                 human.Surname = SurnameMaskedTextBox.Text;
@@ -156,7 +173,7 @@ namespace WindowsFormsApp3
         private void UserListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var human = UserListBox.SelectedItem as Person;
-
+            IsLeave = true;
             NameMaskedTextBox.Text = human.Name;
             SurnameMaskedTextBox.Text = human.Surname;
             EmailMaskedTextBox.Text = human.Email;
