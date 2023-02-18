@@ -62,6 +62,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 34);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -69,14 +70,15 @@
             this.groupBox1.Size = new System.Drawing.Size(595, 505);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Form";
             // 
             // ChangeBtn
             // 
+            this.ChangeBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeBtn.Location = new System.Drawing.Point(416, 469);
             this.ChangeBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ChangeBtn.Name = "ChangeBtn";
-            this.ChangeBtn.Size = new System.Drawing.Size(100, 28);
+            this.ChangeBtn.Size = new System.Drawing.Size(100, 36);
             this.ChangeBtn.TabIndex = 7;
             this.ChangeBtn.Text = "Change";
             this.ChangeBtn.UseVisualStyleBackColor = true;
@@ -84,10 +86,11 @@
             // 
             // AddBtn
             // 
+            this.AddBtn.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.Location = new System.Drawing.Point(416, 407);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(4);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(100, 28);
+            this.AddBtn.Size = new System.Drawing.Size(100, 39);
             this.AddBtn.TabIndex = 6;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -95,19 +98,21 @@
             // 
             // BirthDayDateTimePictute
             // 
+            this.BirthDayDateTimePictute.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BirthDayDateTimePictute.Location = new System.Drawing.Point(304, 352);
             this.BirthDayDateTimePictute.Margin = new System.Windows.Forms.Padding(4);
             this.BirthDayDateTimePictute.Name = "BirthDayDateTimePictute";
-            this.BirthDayDateTimePictute.Size = new System.Drawing.Size(265, 22);
+            this.BirthDayDateTimePictute.Size = new System.Drawing.Size(265, 24);
             this.BirthDayDateTimePictute.TabIndex = 5;
             // 
             // PhoneNumberMaskedTextBox
             // 
+            this.PhoneNumberMaskedTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneNumberMaskedTextBox.Location = new System.Drawing.Point(304, 279);
             this.PhoneNumberMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PhoneNumberMaskedTextBox.Mask = "(+994) -00-000-00-00";
             this.PhoneNumberMaskedTextBox.Name = "PhoneNumberMaskedTextBox";
-            this.PhoneNumberMaskedTextBox.Size = new System.Drawing.Size(160, 22);
+            this.PhoneNumberMaskedTextBox.Size = new System.Drawing.Size(196, 30);
             this.PhoneNumberMaskedTextBox.TabIndex = 4;
             // 
             // SurnameMaskedTextBox
@@ -116,7 +121,7 @@
             this.SurnameMaskedTextBox.Location = new System.Drawing.Point(304, 139);
             this.SurnameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.SurnameMaskedTextBox.Name = "SurnameMaskedTextBox";
-            this.SurnameMaskedTextBox.Size = new System.Drawing.Size(248, 22);
+            this.SurnameMaskedTextBox.Size = new System.Drawing.Size(248, 46);
             this.SurnameMaskedTextBox.TabIndex = 2;
             // 
             // EmailMaskedTextBox
@@ -125,7 +130,7 @@
             this.EmailMaskedTextBox.Location = new System.Drawing.Point(304, 203);
             this.EmailMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailMaskedTextBox.Name = "EmailMaskedTextBox";
-            this.EmailMaskedTextBox.Size = new System.Drawing.Size(248, 22);
+            this.EmailMaskedTextBox.Size = new System.Drawing.Size(248, 46);
             this.EmailMaskedTextBox.TabIndex = 3;
             // 
             // NameMaskedTextBox
@@ -134,7 +139,7 @@
             this.NameMaskedTextBox.Location = new System.Drawing.Point(304, 74);
             this.NameMaskedTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.NameMaskedTextBox.Name = "NameMaskedTextBox";
-            this.NameMaskedTextBox.Size = new System.Drawing.Size(248, 22);
+            this.NameMaskedTextBox.Size = new System.Drawing.Size(248, 46);
             this.NameMaskedTextBox.TabIndex = 1;
             // 
             // label5

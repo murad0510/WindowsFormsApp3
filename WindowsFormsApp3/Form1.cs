@@ -69,9 +69,7 @@ namespace WindowsFormsApp3
             person.BirthDay = BirthDayDateTimePictute.Text;
             person.FileName = person.Name;
             list2.Add(person);
-            //list.Add(person);
 
-            //WriteJsonNewPerson(person);
             UserListBox.DisplayMember = nameof(Person.Name);
             UserListBox.Items.Add(person);
 
