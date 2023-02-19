@@ -71,8 +71,8 @@ namespace WindowsFormsApp3
                 person.BirthDay = BirthDayDateTimePictute.Text;
                 person.FileName = person.Name;
 
-                label6.Text = "Correct";
-                label6.ForeColor = Color.Green;
+                label6.Text = "";
+                label6.ForeColor = Color.White;
 
                 list2.Add(person);
 
